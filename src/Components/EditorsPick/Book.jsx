@@ -8,8 +8,11 @@ const Book = (props) => {
 
   console.log(props);
 
-  const handelClick = () => {
-    setShow(!show);
+  const handelClickOpen = () => {
+    setShow(true);
+  };
+  const handelClickClose = () => {
+    setShow(false);
   };
 
   return (
@@ -17,14 +20,10 @@ const Book = (props) => {
       <Col className="h-100 ">
         <div className="mb-0">
           <div className="card border-0 shadow h-100">
-            <img
-              src={image}
-              className="card-img-top"
-              height="100%"
-              alt=""
-              onClick={handelClick}
-            />
+            <img src={image} className="card-img-top" height="100%" alt="" />
           </div>
+          <button onClick={handelClickOpen}>Open</button>
+          <button onClick={handelClickClose}>Close</button>
           {/* Show Info Section */}
           <div className={show ? "showSection show" : "showSection"}>
             <span>{title}</span> <br />
